@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seu Bar Bateias</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            background-image: url(c:\Users\jesus\Downloads\WhatsApp Image 2025-01-16 at 17.05.44 (1).jpeg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: 'Bazooka';
+            color: rgba(0, 0, 0);
+            text-align: center;
+            margin: 25;
+            padding: 10;
+            height: 100vh;
+        }
+        footer {
+            padding: 10px;
+            background: rgb(0, 0, 0);
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bar Bateias</h1>    
+    </header>
+    <nav>
+    </nav>  
+    <main>
+        <h2>Já pensou em ter seu próprio bar por um dia? Com o Bar Bateias isso é possível e fácil. Você pode ter seu próprio bar por um dia, contando com equipamento de show e caixas de som potentes, cozinha e geladeiras cheias de cerveja. Não fique na dúvida, veja as imagens do nosso bar abaixo.</h2>
+        <img src="c:/Users/jesus/Downloads/WhatsApp Image 2025-01-17 at 17.55.46.jpeg" alt="frente do bar">
+        <img src="c:/Users/jesus/Downloads/WhatsApp Image 2025-01-17 at 17.56.20.jpeg" alt="entrada">
+        <img src="c:/Users/jesus/Downloads/WhatsApp Image 2025-01-17 at 17.56.48.jpeg" alt="recepção">
+        <img src="c:/Users/jesus/Downloads/WhatsApp Image 2025-01-17 at 17.56.35.jpeg" alt="espaço do bar">
+        <p>Gostou? Chame seus amigos, parentes ou seja lá quem for e venha dar aquela festa. Estamos localizados na Lagoa das Bateias, Avenida Bateias N°09. Não perca tempo!</p>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+<!-- Código do link da seção 'Sobre' -->
+<li><a href="sobre.html">Sobre</a></li>
+<!-- Código HTML do arquivo 'sobre.html' -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre</title>
+</head>
+<body>
+    <h1>Vamos começar?</h1>
+    <p>Bem-vindo(a) ao nosso cadastro, por favor preencha com atenção, após o envio veremos seu pedido o mais rápido possível, caso demore apele para o contato: 77 988370347.</p>
+
+    <h2>Cadastro</h2>
+    <form action="enviar_cadastro.php" method="post">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="telefone">telefone:</label>
+        <input type="number" id="Número" name="Número" required><br><br>
+
+        <label for="mensagem">mensagem:</label>
+        <textarea id="mensagem" name="mensagem" rows="15" required></textarea><br><br>
+
+        <input type="submit" value="enviar">
+
+    </form>
+</body>
+</html>
+
+          
+        </ul>
+    </main>
+    <footer>
+        <p>&copy; 2025 Bateias Bar</p>    
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $telefone = $_POST['telefone'];
+    $mensagem = $_POST['mensagem'];
+
+    // Email que vai receber os dados do formulário
+    $para = "seuemail@example.com"; // np178
+    $assunto = "Nova Mensagem de Cadastro";
+
+    $mensagem_email = "Nome: " . $nome . "\n";
+    $mensagem_email .= "Email: " . $email . "\n";
+    $mensagem_email .= "Telefone: " . $telefone . "\n";
+    $mensagem_email .= "Mensagem: " . $mensagem . "\n";
+
+    // Cabeçalhos do email
+    $cabecalhos = "From: webmaster@example.com"; //marcondesdelamare24@gmail.com
+    $cabecalhos .= "\r\nReply-To: " . $email;
+
+    // Enviar o email para você
+    if (mail($para, $assunto, $mensagem_email, $cabecalhos)) {
+        echo "Mensagem enviada com sucesso!";
+    } else {
+        echo "Erro ao enviar mensagem.";
+    }
+
+    // Enviar email de confirmação para o usuário
+    $assunto_confirmacao = "Confirmação de Cadastro";
+    $mensagem_confirmacao = "Olá " . $nome . ",\n\nObrigado por entrar em contato! Recebemos sua mensagem com sucesso.\n\nAtenciosamente,\nEquipe";
+    $cabecalhos_confirmacao = "From: webmaster@example.com";
+
+    mail($email, $assunto_confirmacao, $mensagem_confirmacao, $cabecalhos_confirmacao);
+}
+?>
+
+
